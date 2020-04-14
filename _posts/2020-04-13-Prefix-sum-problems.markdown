@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 ## Introduction
 -------
-A prefix sum of an array of number is the cumulative sum of the array. Using this method, we can easily calculate the sum between two points of the array in constant time. I will be updating this page as and when I come across more prefix sum problems.
+A prefix sum of an array of numbers is the cumulative sum of the array. Using this method, we can easily calculate the sum between two points of the array in constant time. I will be updating this page as and when I come across more prefix sum problems.
 
 ### 1. Find Subarray with given sum 
 -------
