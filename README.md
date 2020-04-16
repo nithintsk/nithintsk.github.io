@@ -1,2 +1,2 @@
 # nithintsk.github.io
-My current portfolio
+My current portfolio and blog
