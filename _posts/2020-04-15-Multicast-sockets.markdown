@@ -10,7 +10,9 @@ Using multicast, we can send datagrams to a GROUP of interested listeners. The m
 
 ### The sender - send.c
 -------
-The send program is the simpler of the two. The only difference compared to a traditional UDP sockets program is that the `to address` will now be the multicast group. The following program sends a message string to the multicast address `239.0.0.1`. The message is transmitted every two seconds for a total of 10 times.
+The send program is the simpler of the two. The only difference compared to a traditional UDP sockets program is that the `to address` will now be the multicast group. The socket descriptor can be used to send both unicast and multicast packets by changing the destination address variable(`struct sockaddr_in`). 
+
+The following program sends a message string to the multicast address `239.0.0.1`. The message is transmitted every two seconds for a total of 10 times.
 
 ```cpp
 #include <stdio.h>
