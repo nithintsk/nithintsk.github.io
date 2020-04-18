@@ -1,0 +1,90 @@
+---
+layout: post
+title: "Rest API - An Introduction"
+date:   2020-04-17 19:48:00 -0400
+categories: jekyll update
+---
+### What is a Web Service? - [Source](https://www.studytonight.com/rest-web-service/introduction)
+-------
+Web Services are client and server applications that communicate over the World Wide Web's (WWW) Hypertext Transfer Protocol (HTTP). As described by the World Wide Web Consortium (W3C), web services provide a standard means of interoperating between software applications running on a variety of platforms and frameworks.
+
+Web Services can be looked as a code on demand. Just like we call functions and methods, web services can be looked upon as calling a function or method over the internet using some sort of protocols and some agreements.
+
+A web service is a function or method which we can call by sending an HTTP request to a URL, with arguments and the service returns the result back as response.
+
+The biggest advantage of the web services is that it is platform independent.
+
+&nbsp;
+
+### Types of Web Services
+--------
+There are two types of web services - SOAP and REST
+
+**SOAP** - Stands for **S**imple **O**bject **A**ccess **P**rotocol. It is an XML based protocol that provides an envelope to send a web services messages over the Internet, using the HTTP protocol. SOAP is now being replaced by REST, but it can still be found in some application's legacy code.
+
+**REST** - **RE**presentational **S**tate **T**ransfer is a style of software architecture. Applications which follow this architecture are referred to as RESTful.
+
+REST locates resources based on the URL and it determines the actions to be performed based on the type of transport protocol's methods a.k.a. transport action verbs(HTTP - Get, Put, Post, Delete). REST accepts different data formats like, Plain Text, HTML, JSON, XML etc. 
+
+&nbsp;
+
+### What is an API?
+-------
+Application Programming Interface, is a set of (usually)documented operations that developers can use to interact with a program. It provides a set of interfaces that allow applications to interact with each other. Another way to put it is that by providing an API, an application allows controlled external access to its resources. APIs can also be used for communication between services in the same platform. It is important to note that APIs are usually for application consumption. 
+
+Some examples of public API are google maps api, twitter api, facebook's graph api, etc.
+
+&nbsp;
+
+### [REST API's 6 guiding principles](https://restfulapi.net/)
+------
+- **Client-Server architecture**
+-  **Stateless** - Each request from client to server must contain all of the information necessary to understand the request, and cannot take advantage of any stored context on the server. Session state is therefore kept entirely on the client.
+-  **Cacheable** - ache constraints require that the data within a response to a request be implicitly or explicitly labeled as cacheable or non-cacheable. If a response is cacheable, then a client cache is given the right to reuse that response data for later, equivalent requests.
+- **Uniform Interface** - REST is defined by four interface constraints: identification of resources; manipulation of resources through representations; self-descriptive messages; and, hypermedia as the engine of application state.
+- **Layered System** - The layered system style allows an architecture to be composed of hierarchical layers by constraining component behavior such that each component cannot “see” beyond the immediate layer with which they are interacting.
+- **Code on demand (optional)** - REST allows client functionality to be extended by downloading and executing code in the form of applets or scripts. This simplifies clients by reducing the number of features required to be pre-implemented.
+
+The key abstraction of information in REST is a resource. Any information that can be named can be a resource: a document or image, a temporal service, etc.
+
+URL stands for Uniform Resource Locator. Yes, a webpage is also a resource and is loaded by sending a request to the associated URL. Rest API uses URL to determine the type of resource being accessed.
+
+E.g. `/employee` points to all employees. However `/employee/nithin` returns nithin's information specifically. 
+
+Here `/employee` is a resource. And the action to be performed on this resource is decided based on the HTTP verb used. Also, a critical information - the host - i.e. the server address/url will be in the HTTP header. The rest of the content will be in the body.
+
+&nbsp;
+
+### [HTTP Methods/Verbs](https://www.studytonight.com/rest-web-service/understanding-http)
+-------
+**GET** - (READ) The GET method is used to get the information from the server. This is equivalent to the SELECT statement in SQL. There is no message body in the GET request as it is meant to only fetch the data from the server.
+
+```
+GET /employee/nithin
+```
+
+This is the simplest type, and is used by the browser every time you visit any link, to fetch the data. A GET request should never change the data on server, and should only be used to read data.
+
+**POST** - (CREATE) This is used to send the data to the server. This can be information pertaining to the employee, some XML file or some JPG file. The message body contains the data. POST requests are generally used to create but it can be used to update the existing data as well.
+
+**PUT** - (UPDATE) This should be used when we have to replace/update/create the data, which is already present/not present on the server with the data that we pass in the message body.
+
+**DELETE** - (DELETE) This should be used to delete the data on the server. For example, the following URL when sent a DELETE request, should delete the employee entry.
+
+```
+DELETE /employee/nithin
+```
+
+**You must notice that, with every method, we have mentioned should be used, as we can only advice to follow the standards. DELETE can be used to create a new entry, but we must follow the standards to avoid any confusion.**
+
+&nbsp;
+
+### Useful Links
+------
+- [Study Tonight's Introduction to Web Services](https://www.studytonight.com/rest-web-service/introduction)
+- [RESTFUL API](https://restfulapi.net/)
+- [Building a JSON API with Python](https://www.freecodecamp.org/news/build-a-simple-json-api-in-python/)
+- [IMDB API](https://blog.api.rakuten.net/imdb-api-tutorial/)
+
+&nbsp;
+
