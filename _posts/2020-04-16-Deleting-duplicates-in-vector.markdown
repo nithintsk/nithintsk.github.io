@@ -13,6 +13,8 @@ This post details different methods - from the least efficient to the most effic
 4. [Convert to an unordered set using a constructor](#unordered_constructor)
 5. [Convert to an unordered set manually - The fastest of them all](#unordered_manual)
 
+&nbsp;
+
 ### <a name="sort_unique"></a>Remove duplicates using std::sort and std::unique
 -------
 We first need to know the syntax of `std::sort`, `std::unique` and `std::vector::erase`.
