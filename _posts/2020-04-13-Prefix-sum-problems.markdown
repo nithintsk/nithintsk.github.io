@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Prefix Sum - The general approach to a contiguous subarray problem."
-date:   2020-04-13 22:29:06 -0400
+date:   "2020-04-13 12:00:00 -0400"
 categories: jekyll update
 ---
 ## Introduction

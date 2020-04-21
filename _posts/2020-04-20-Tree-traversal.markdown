@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tree traversal - Inorder, Preorder and Postorder"
-date:   2020-04-20 20:44:00 -0400
+date:   "2020-04-20 12:00:00 -0400"
 categories: jekyll update
 ---
 ### Index

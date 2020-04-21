@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Deleting duplicates in std::vector"
-date:   2020-04-16 21:48:00 -0400
+date:   "2020-04-16 12:00:00 -0400"
 categories: jekyll update
 ---
 ## Introduction

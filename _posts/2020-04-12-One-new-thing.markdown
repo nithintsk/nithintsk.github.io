@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "One new thing! - Generating entropy to create gpg keys"
-date:   2020-04-12 19:53:06 -0400
+date:   "2020-04-12 12:00:00 -0400"
 categories: jekyll update
 ---
 It's been over a month under lockdown due to Covid-19. I try to spend my time being as productive as possible. However, I find myself unable to keep track of the progress I'm making given that I don't document any of it. So, below is the first in a series of posts to keep a record of at least One New Thing I learn everyday.
