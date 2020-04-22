@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tree traversal - Inorder, Preorder and Postorder"
-date:   "2020-04-20 12:00:00 -0400"
+date:   "2020-04-21 12:00:00 -0400"
 categories: jekyll update
 ---
 ### Index
@@ -124,5 +124,38 @@ vector<int> preorderTraversal(TreeNode* root) {
     return result;
 }
 ```
+
+### <a name="levelorder_traversal"></a> LevelOrder Traversal (Using a queue)
+-------
+Level Order Traversal means printing all the elements from left to right from the top level to the bottom.
+The datastructure most suitable to accomplish this is a queue since it is FIFO.
+
+The size of the queue is noted. This is the current number of nodes in the queue. Then, for each node at the front of the queue, children of the nodes are pushed into the queue, from left to right. The level has been traversed when `size` number of elements' children have been pushed in.
+
+```cpp
+vector<vector<int>> levelOrder(TreeNode* root) {
+    vector< vector<int> > result;
+    queue<TreeNode*> Q;
+
+    if (root == NULL) return result;
+    Q.push(root);
+
+    while (!Q.empty()) {
+        int size = Q.size();
+        vector<int> res;
+        for (int i = 0; i < size; i++) {
+            TreeNode* t = Q.front();
+            Q.pop();
+            res.push_back(t -> val);
+            if (t -> left) Q.push(t -> left);
+            if (t -> right) Q.push(t -> right);
+        }
+        result.push_back(res);
+    }
+
+    return result;
+}
+```
+
 
 ... T.B.C
