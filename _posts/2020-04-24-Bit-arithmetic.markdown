@@ -98,6 +98,6 @@ int findComplement(int num) {
     while (mask < num) {
         mask = (mask << 1) + 1;
     }                                                                    
-    return mask & ~num;
+    return mask ^ num;
 }
 ```
