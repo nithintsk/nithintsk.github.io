@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bit arithmetic - Cheat Sheet and Programs"
-date:   "2020-04-24 12:00:00 -0400"
+date:   "2020-05-05 12:00:00 -0400"
 categories: jekyll update
 ---
 ### Index
@@ -10,6 +10,7 @@ categories: jekyll update
 2. [Tips and tricks](#tips)
 3. [Bitwise hacks for competitive programming](https://www.geeksforgeeks.org/bitwise-hacks-for-competitive-programming/)
 4. [Problem 1 - Bitwise AND of a range of numbers](#prob1)
+5. [Problem 2 - Ones complement of a number](#prob2)
 
 &nbsp;
 
@@ -68,11 +69,35 @@ The result will be 0 if:- `log2(n/m) != 0` <--> `log2(n) != log2(m)`. In the bel
 ```cpp
 int rangeBitwiseAnd(int m, int n) {
     int count = 0;
-    while(m!=n){
-        m>>=1;
-        n>>=1;
-        count+=1;
+    while(m != n){
+        m >>= 1;
+        n >>= 1;
+        count += 1;
     }
-    return m<<=count;
+    return m <<= count;
+}
+```
+
+&nbsp;
+
+### <a name="prob2"></a> 1s complement of a number
+-------
+Eg. 1
+Input: 5
+Output: 2
+Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.
+
+Eg. 2
+Input: 1
+Output: 0
+Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0.
+
+```cpp
+int findComplement(int num) {
+    int mask = 1;
+    while (mask < num) {
+        mask = (mask << 1) + 1;
+    }                                                                    
+    return mask & ~num;
 }
 ```
