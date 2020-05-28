@@ -11,6 +11,7 @@ categories: jekyll update
 3. [Bitwise hacks for competitive programming](https://www.geeksforgeeks.org/bitwise-hacks-for-competitive-programming/)
 4. [Problem 1 - Bitwise AND of a range of numbers](#prob1)
 5. [Problem 2 - Ones complement of a number](#prob2)
+6. [Problem 3 - Count the number of 1s in numbers in range 0 to num inclusive](#prob3)
 
 &nbsp;
 
@@ -99,5 +100,28 @@ int findComplement(int num) {
         mask = (mask << 1) + 1;
     }                                                                    
     return mask ^ num;
+}
+```
+
+&nbsp;
+
+### <a name="prob3"></a> Get count of 1s of all numbers in range \[0, num\]
+-------
+Eg. 1
+Input: 5
+Output: [0,1,1,2,1,2]
+
+We can use inbuilt function: `cout<< __builtin_popcount (4);`
+
+This is a form of dynamic programming, where we use the value of res[i/2] which
+will have the same number of 1s as res[num] + (1 if odd, 0 if even)
+
+```cpp
+vector<int> countBits(int num) {
+    vector<int> res(num + 1, 0);
+    for (int i = 0; i < num + 1; i++) {
+        res[i] = res[i >> 1] + (i & 1);
+    }
+    return res;
 }
 ```
