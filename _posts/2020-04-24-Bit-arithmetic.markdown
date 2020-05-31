@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bit arithmetic - Cheat Sheet and Programs"
-date:   "2020-05-05 12:00:00 -0400"
+date:   "2020-05-30 12:00:00 -0400"
 categories: jekyll update
 ---
 ### Index
@@ -12,6 +12,8 @@ categories: jekyll update
 4. [Problem 1 - Bitwise AND of a range of numbers](#prob1)
 5. [Problem 2 - Ones complement of a number](#prob2)
 6. [Problem 3 - Count the number of 1s in numbers in range 0 to num inclusive](#prob3)
+7. [Problem 4 - Find a missing number in the range 0 to n](#prob4)
+
 
 &nbsp;
 
@@ -83,14 +85,12 @@ int rangeBitwiseAnd(int m, int n) {
 
 ### <a name="prob2"></a> 1s complement of a number
 -------
-Eg. 1
-Input: 5
-Output: 2
+**Eg. 1** Input: 5 Output: 2
+
 Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.
 
-Eg. 2
-Input: 1
-Output: 0
+**Eg. 2** Input: 1 Output: 0
+
 Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0.
 
 ```cpp
@@ -107,9 +107,7 @@ int findComplement(int num) {
 
 ### <a name="prob3"></a> Get count of 1s of all numbers in range \[0, num\]
 -------
-Eg. 1
-Input: 5
-Output: [0,1,1,2,1,2]
+**Eg. 1** Input: 5 Output: [0,1,1,2,1,2]
 
 We can use inbuilt function: `cout<< __builtin_popcount (4);`
 
@@ -121,6 +119,27 @@ vector<int> countBits(int num) {
     vector<int> res(num + 1, 0);
     for (int i = 0; i < num + 1; i++) {
         res[i] = res[i >> 1] + (i & 1);
+    }
+    return res;
+}
+```
+
+&nbsp;
+
+### <a name="prob4"></a> Find missing number in an array of n elements in the range of 0 to n.
+-------
+Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
+
+**Eg. 1** Input: [3,0,1] Output: 2
+
+**Eg. 2** Input: [9,6,4,2,3,5,7,0,1] Output: 8
+
+```cpp
+public int missingNumber(int[] nums) { //xor
+    int res = nums.length;
+    for(int i=0; i<nums.length; i++){
+        res ^= i;
+        res ^= nums[i];
     }
     return res;
 }
