@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My current portfolio">
+
+  <title>Nithin Senthil Kumar</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-font">
+
+    <a class="navbar-brand" href="/"><h4><b>Nithin Senthil Kumar</b></h4></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="https://github.com/nithintsk"><i class="fab fa-1x fa-github"></i></a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+
+  <div class="col-lg-10 mx-auto mt-5 post">
+  <h1><b>Rest API An Introduction</b></h1>
+
+<p class="post-metadata text-muted">
+  17 April 2020 -  
+  <b>5 mins read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#rest">
+      <span class="tag badge badge-pill text-primary border border-primary">REST</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#api">
+      <span class="tag badge badge-pill text-primary border border-primary">API</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#web">
+      <span class="tag badge badge-pill text-primary border border-primary">Web</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#soap">
+      <span class="tag badge badge-pill text-primary border border-primary">SOAP</span>
+    </a>
+    </p>
+
+<h3 id="what-is-a-web-service---source">What is a Web Service? - <a href="https://www.studytonight.com/rest-web-service/introduction">Source</a></h3>
+<hr />
+<p>Web Services are client and server applications that communicate over the World Wide Web’s (WWW) Hypertext Transfer Protocol (HTTP). As described by the World Wide Web Consortium (W3C), web services provide a standard means of interoperating between software applications running on a variety of platforms and frameworks.</p>
+
+<p>Web Services can be looked as a code on demand. Just like we call functions and methods, web services can be looked upon as calling a function or method over the internet using some sort of protocols and some agreements.</p>
+
+<p>A web service is a function or method which we can call by sending an HTTP request to a URL, with arguments and the service returns the result back as response.</p>
+
+<p>The biggest advantage of the web services is that it is platform independent.</p>
+
+<p> </p>
+
+<h3 id="types-of-web-services">Types of Web Services</h3>
+<hr />
+<p>There are two types of web services - SOAP and REST</p>
+
+<p><strong>SOAP</strong> - Stands for <strong>S</strong>imple <strong>O</strong>bject <strong>A</strong>ccess <strong>P</strong>rotocol. It is an XML based protocol that provides an envelope to send a web services messages over the Internet, using the HTTP protocol. SOAP is now being replaced by REST, but it can still be found in some application’s legacy code.</p>
+
+<p><strong>REST</strong> - <strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer is a style of software architecture. Applications which follow this architecture are referred to as RESTful.</p>
+
+<p>REST locates resources based on the URL and it determines the actions to be performed based on the type of transport protocol’s methods a.k.a. transport action verbs(HTTP - Get, Put, Post, Delete). REST accepts different data formats like, Plain Text, HTML, JSON, XML etc.</p>
+
+<p> </p>
+
+<h3 id="what-is-an-api">What is an API?</h3>
+<hr />
+<p>Application Programming Interface, is a set of (usually)documented operations that developers can use to interact with a program. It provides a set of interfaces that allow applications to interact with each other. Another way to put it is that by providing an API, an application allows controlled external access to its resources. APIs can also be used for communication between services in the same platform. It is important to note that APIs are usually for application consumption.</p>
+
+<p>Some examples of public API are google maps api, twitter api, facebook’s graph api, etc.</p>
+
+<p> </p>
+
+<h3 id="rest-apis-6-guiding-principles"><a href="https://restfulapi.net/">REST API’s 6 guiding principles</a></h3>
+<hr />
+<ul>
+  <li><strong>Client-Server architecture</strong></li>
+  <li><strong>Stateless</strong> - Each request from client to server must contain all of the information necessary to understand the request, and cannot take advantage of any stored context on the server. Session state is therefore kept entirely on the client.</li>
+  <li><strong>Cacheable</strong> - ache constraints require that the data within a response to a request be implicitly or explicitly labeled as cacheable or non-cacheable. If a response is cacheable, then a client cache is given the right to reuse that response data for later, equivalent requests.</li>
+  <li><strong>Uniform Interface</strong> - REST is defined by four interface constraints: identification of resources; manipulation of resources through representations; self-descriptive messages; and, hypermedia as the engine of application state.</li>
+  <li><strong>Layered System</strong> - The layered system style allows an architecture to be composed of hierarchical layers by constraining component behavior such that each component cannot “see” beyond the immediate layer with which they are interacting.</li>
+  <li><strong>Code on demand (optional)</strong> - REST allows client functionality to be extended by downloading and executing code in the form of applets or scripts. This simplifies clients by reducing the number of features required to be pre-implemented.</li>
+</ul>
+
+<p>The key abstraction of information in REST is a resource. Any information that can be named can be a resource: a document or image, a temporal service, etc.</p>
+
+<p>URL stands for Uniform Resource Locator. Yes, a webpage is also a resource and is loaded by sending a request to the associated URL. Rest API uses URL to determine the type of resource being accessed.</p>
+
+<p>E.g. <code class="language-plaintext highlighter-rouge">/employee</code> points to all employees. However <code class="language-plaintext highlighter-rouge">/employee/nithin</code> returns nithin’s information specifically.</p>
+
+<p>Here <code class="language-plaintext highlighter-rouge">/employee</code> is a resource. And the action to be performed on this resource is decided based on the HTTP verb used. Also, a critical information - the host - i.e. the server address/url will be in the HTTP header. The rest of the content will be in the body.</p>
+
+<p> </p>
+
+<h3 id="http-methodsverbs"><a href="https://www.studytonight.com/rest-web-service/understanding-http">HTTP Methods/Verbs</a></h3>
+<hr />
+<p><strong>GET</strong> - (READ) The GET method is used to get the information from the server. This is equivalent to the SELECT statement in SQL. There is no message body in the GET request as it is meant to only fetch the data from the server.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /employee/nithin
+</code></pre></div></div>
+
+<p>This is the simplest type, and is used by the browser every time you visit any link, to fetch the data. A GET request should never change the data on server, and should only be used to read data.</p>
+
+<p><strong>POST</strong> - (CREATE) This is used to send the data to the server. This can be information pertaining to the employee, some XML file or some JPG file. The message body contains the data. POST requests are generally used to create but it can be used to update the existing data as well.</p>
+
+<p><strong>PUT</strong> - (UPDATE) This should be used when we have to replace/update/create the data, which is already present/not present on the server with the data that we pass in the message body.</p>
+
+<p><strong>DELETE</strong> - (DELETE) This should be used to delete the data on the server. For example, the following URL when sent a DELETE request, should delete the employee entry.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /employee/nithin
+</code></pre></div></div>
+
+<p><strong>You must notice that, with every method, we have mentioned should be used, as we can only advice to follow the standards. DELETE can be used to create a new entry, but we must follow the standards to avoid any confusion.</strong></p>
+
+<p> </p>
+
+<h3 id="useful-links">Useful Links</h3>
+<hr />
+<ul>
+  <li><a href="https://www.studytonight.com/rest-web-service/introduction">Study Tonight’s Introduction to Web Services</a></li>
+  <li><a href="https://restfulapi.net/">RESTFUL API</a></li>
+  <li><a href="https://www.freecodecamp.org/news/build-a-simple-json-api-in-python/">Building a JSON API with Python</a></li>
+  <li><a href="https://blog.api.rakuten.net/imdb-api-tutorial/">IMDB API</a></li>
+</ul>
+
+<p> </p>
+
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <strong>Contact Me</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center social-font"><a class="social mx-1"  href="mailto:nithin.tsk@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div>
+
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

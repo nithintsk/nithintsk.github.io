@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My current portfolio">
+
+  <title>Nithin Senthil Kumar</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-font">
+
+    <a class="navbar-brand" href="/"><h4><b>Nithin Senthil Kumar</b></h4></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="https://github.com/nithintsk"><i class="fab fa-1x fa-github"></i></a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+
+  <div class="col-lg-10 mx-auto mt-5 post">
+  <h1><b>Validate a Binary Search Tree</b></h1>
+
+<p class="post-metadata text-muted">
+  16 May 2020 -  
+  <b>3 mins read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#trees">
+      <span class="tag badge badge-pill text-primary border border-primary">Trees</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#leetcode">
+      <span class="tag badge badge-pill text-primary border border-primary">Leetcode</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#bst">
+      <span class="tag badge badge-pill text-primary border border-primary">BST</span>
+    </a>
+    </p>
+
+<h3 id="leetcode-98---validate-a-binary-search-tree">LeetCode 98 - Validate a Binary Search Tree</h3>
+<hr />
+<p>Given a binary tree, determine if it is a valid binary search tree (BST).</p>
+
+<p>Assume a BST is defined as follows:</p>
+
+<ul>
+  <li>The left subtree of a node contains only nodes with keys <strong>less than</strong> the node’s key.</li>
+  <li>The right subtree of a node contains only nodes with keys <strong>greater than</strong> the node’s key.</li>
+  <li>Both the left and right subtrees must also be binary search trees.</li>
+</ul>
+
+<h4 id="-in-order-traversal---concept-of-ascending-order"><strong>&gt; In-Order Traversal - Concept of ascending order</strong></h4>
+
+<p>If we use in-order traversal to serialize a binary search tree, we can get a list of values in <strong>ascending order</strong>. Using *prev to keep a track of the last visited node, we can establish the relationship that the current node must be less than the previous node. But this comparison must only start once we reach the smallest node, i.e. the first NULL.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">bool</span> <span class="n">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">prev</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span> 
+        <span class="k">return</span> <span class="n">validate</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">prev</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kt">bool</span> <span class="n">validate</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">node</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">prev</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">validate</span><span class="p">(</span><span class="n">node</span> <span class="o">-&gt;</span> <span class="n">left</span><span class="p">,</span> <span class="n">prev</span><span class="p">))</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Traverse left subtree</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">prev</span> <span class="o">&amp;&amp;</span> <span class="n">prev</span> <span class="o">-&gt;</span> <span class="n">val</span> <span class="o">&gt;=</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">val</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Starts comparison from first non null prev.</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span> <span class="c1">// Update prev before moving to right subtree.</span>
+        <span class="k">return</span> <span class="n">validate</span><span class="p">(</span><span class="n">node</span> <span class="o">-&gt;</span> <span class="n">right</span><span class="p">,</span> <span class="n">prev</span><span class="p">);</span> 
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="-standard-recursion---view-the-problem-as-leftsubtree-and-rightsubtree"><strong>&gt; Standard Recursion - View the problem as leftsubtree and rightsubtree</strong></h4>
+
+<p>In this solution below, the logic to break out of the recursion is simple.
+Notice how values being passed to minNode and maxNode parameter are changing.</p>
+
+<p>To the left subtree, you pass the maxNode as the root, minNode does not change.
+To the right subtree, you pass the minNode as the root, maxNode does not chage.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">bool</span> <span class="n">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">isValidBST</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">bool</span> <span class="n">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">minNode</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">maxNode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">minNode</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&lt;=</span> <span class="n">minNode</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">||</span> <span class="n">maxNode</span> <span class="o">&amp;&amp;</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&gt;=</span> <span class="n">maxNode</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">isValidBST</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">minNode</span><span class="p">,</span> <span class="n">root</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">isValidBST</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">maxNode</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p> </p>
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <strong>Contact Me</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center social-font"><a class="social mx-1"  href="mailto:nithin.tsk@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div>
+
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

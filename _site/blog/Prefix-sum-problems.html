@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My current portfolio">
+
+  <title>Nithin Senthil Kumar</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-font">
+
+    <a class="navbar-brand" href="/"><h4><b>Nithin Senthil Kumar</b></h4></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="https://github.com/nithintsk"><i class="fab fa-1x fa-github"></i></a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+
+  <div class="col-lg-10 mx-auto mt-5 post">
+  <h1><b>Prefix Sum - The general approach to a contiguous subarray problem.</b></h1>
+
+<p class="post-metadata text-muted">
+  13 April 2020 -  
+  <b>8 mins read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#prefix-sum">
+      <span class="tag badge badge-pill text-primary border border-primary">prefix sum</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#subarray">
+      <span class="tag badge badge-pill text-primary border border-primary">subarray</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#contiguous">
+      <span class="tag badge badge-pill text-primary border border-primary">contiguous</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#leetcode">
+      <span class="tag badge badge-pill text-primary border border-primary">Leetcode</span>
+    </a>
+    </p>
+
+<h2 id="introduction">Introduction</h2>
+<hr />
+<p>A prefix sum of an array of numbers is the cumulative sum of the array. Using this method, we can easily calculate the sum between two points of the array in constant time. I will be updating this page as and when I come across more prefix sum problems.</p>
+
+<h3 id="1-find-subarray-with-given-sum">1. Find Subarray with given sum</h3>
+<hr />
+<p><strong>Description</strong></p>
+
+<p>Find if there exists a subarray with a given sum in an unsorted array.</p>
+
+<p><strong>Explanation:</strong></p>
+<ul>
+  <li>We will be using the two pointer approach - right and left pointers</li>
+  <li>Start with both pointers at index 0.</li>
+  <li>Get the cumulative sum as you iterate through the array</li>
+  <li>If the cumulative sum is less than target, increment right pointer</li>
+  <li>If the cumulative sum is greater than target, increment the left pointer and subtract the left out element from the cumulative sum.</li>
+  <li>When you reach a point where cumulative sum = target, we have the answer.</li>
+</ul>
+
+<p> </p>
+
+<h3 id="2-leetcode-560---subarray-sum-equals-k">2. LeetCode 560 - Subarray Sum equals K</h3>
+<hr />
+<p><strong>Description:</strong></p>
+
+<p>Find the number of subarrays that exist with a given sum.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Eg:	Input:nums = [1,1,1], k = 2
+	Output: 2
+</code></pre></div></div>
+
+<p><strong>Explanation:</strong></p>
+<ul>
+  <li>As we iterate through the array, we calculate the prefix sum. We add prefix sum 0 to a map with the number of occurrences as 1.</li>
+  <li>So, for a given prefix sum(<code class="language-plaintext highlighter-rouge">cur_sum</code>), we know that there will be a subarray which sums to <code class="language-plaintext highlighter-rouge">k</code>, if and only if, there exists a prefix sum(<code class="language-plaintext highlighter-rouge">pre_sum</code>) already such that <code class="language-plaintext highlighter-rouge">(pre_sum + k = cur_sum)</code>.</li>
+  <li>So we check the map to see if <code class="language-plaintext highlighter-rouge">pre_sum = (cur_sum - k)</code> exists.</li>
+  <li>If it exists, we update the global counter. We then increment the value of <code class="language-plaintext highlighter-rouge">map[cur_sum]</code>.</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="nf">subarraySum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pre_sum</span><span class="p">;</span>
+        <span class="n">pre_sum</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">x</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">pre_sum</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">sum</span> <span class="o">-</span> <span class="n">k</span><span class="p">)</span> <span class="o">!=</span> <span class="n">pre_sum</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="n">count</span> <span class="o">+=</span> <span class="n">pre_sum</span><span class="p">[</span><span class="n">sum</span> <span class="o">-</span> <span class="n">k</span><span class="p">];</span>
+            <span class="n">pre_sum</span><span class="p">[</span><span class="n">sum</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+      <span class="p">}</span>
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+<p> </p>
+
+<h3 id="3-leetcode-523---continuous-subarray-sum-where-sum-is-a-multiple-of-k">3. Leetcode 523 - Continuous Subarray Sum where sum is a multiple of k</h3>
+<hr />
+<p><strong>Description:</strong></p>
+
+<p>Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to a multiple of k, that is, sums up to n*k where n is also an integer.</p>
+
+<p><strong>Explanation:</strong></p>
+<ul>
+  <li>The key here is that if the difference between the presums (sum of the contiguous segment) is divisible by k, then each of those pre sum values mod k should be equal</li>
+  <li>i.e, if <code class="language-plaintext highlighter-rouge">(b - a) % k == 0</code>, then <code class="language-plaintext highlighter-rouge">(b % k) == (a % k)</code>.</li>
+  <li>This is why we store the mod value. We are storing the previous value because of the condition that subarray should be of at least size = 2.</li>
+  <li>If <code class="language-plaintext highlighter-rouge">k = 0</code>, then we can’t take mod k. So, we need to find two adjacent 0s to return true.</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="nf">checkSubarraySum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">prev</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">mod_set</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">mod</span> <span class="o">=</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">sum</span> <span class="o">:</span> <span class="n">sum</span> <span class="o">%</span> <span class="n">k</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mod_set</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span> <span class="o">!=</span> <span class="n">mod_set</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">mod_set</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">prev</span><span class="p">);</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">mod</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p> </p>
+
+<h3 id="4-leetcode-525---longest-contiguous-binary-array">4. Leetcode 525 - Longest Contiguous Binary Array</h3>
+<hr />
+<p><strong>Description:</strong></p>
+
+<p>Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.</p>
+
+<p><strong>Explanation:</strong></p>
+<ul>
+  <li>Once again we calculate a prefix sum. But here, since the array is binary, we add -1 if the value is 0 and 1 if the value is 1.</li>
+  <li>Using this approach, we can calculate that there are equal number of 1s and 0s if the sum is 0.</li>
+  <li>Since we calculate the prefix sum from the beginning, when the sum is 0, we hav encountered equal 0s and 1s from the beginning. This will be the longest array.</li>
+  <li>But we can also have intermediate arrays which we will keep track of using a hash map.</li>
+  <li>Since we know that the maximum range of the values of prefix sum is -size to + size, we use an array for constant find() operation.</li>
+  <li>The array is initialized to -1 and will store the index of the first time the prefix sum occurred.</li>
+  <li>We add <code class="language-plaintext highlighter-rouge">size</code> to convert negative indexes (values of prefix sum) to positive.</li>
+  <li>We use the array to check when was the last time that current prefix sum occurred.</li>
+  <li>` (max_sum = max(max_sum, i - arr[pre_sum + size]</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">findMaxLength</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">max_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pre_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">arr</span><span class="p">(</span><span class="n">size</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">?</span> <span class="n">pre_sum</span><span class="o">++</span> <span class="o">:</span> <span class="n">pre_sum</span><span class="o">--</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pre_sum</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">max_sum</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">pre_sum</span> <span class="o">+</span> <span class="n">size</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">arr</span><span class="p">[</span><span class="n">pre_sum</span> <span class="o">+</span> <span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">max_sum</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">max_sum</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="n">pre_sum</span> <span class="o">+</span> <span class="n">size</span><span class="p">]));</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">max_sum</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p> </p>
+
+<h3 id="5-leetcode-53---maximum-subarray---kadanes-algorithm">5. Leetcode 53 - Maximum Subarray - Kadane’s algorithm</h3>
+<hr />
+<p><strong>Description:</strong></p>
+
+<p>Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
+
+<p><strong>Input</strong>: [-2,1,-3,4,-1,2,1,-5,4]</p>
+
+<p><strong>Output</strong>: 6</p>
+
+<p><strong>Explanation</strong>: [4,-1,2,1] has the largest sum = 6</p>
+
+<p><strong>Solution</strong>: Using Kadane’s algorithm. Make sum = nums[i] when sum till before i, drops below 0.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">int</span> <span class="n">maxSubArray</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">maxsum</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">maxsum</span> <span class="o">&lt;</span> <span class="n">sum</span><span class="p">)</span> <span class="n">maxsum</span> <span class="o">=</span> <span class="n">sum</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">maxsum</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p> </p>
+
+<h3 id="6-leetcode-918---maximum-sum-circular-subarray">6. Leetcode 918 - Maximum Sum Circular Subarray</h3>
+<hr />
+<p><strong>Description:</strong></p>
+
+<p>Given a circular array C of integers represented by A, find the maximum possible sum of a non-empty subarray of C.</p>
+
+<p><strong>Input</strong>: [1,-2,3,-2]</p>
+
+<p><strong>Output</strong>: 3</p>
+
+<p><strong>Explanation</strong>: Subarray [3] has maximum sum 3</p>
+
+<p><strong>Solution</strong>: <a href="https://leetcode.com/problems/maximum-sum-circular-subarray/discuss/178422/One-Pass">Using both max subarray and min subarray</a></p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">maxSubarraySumCircular</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">A</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">maxSum</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">curMax</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">minSum</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">curMin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">:</span> <span class="n">A</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">curMax</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">curMax</span> <span class="o">+</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+        <span class="n">maxSum</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxSum</span><span class="p">,</span> <span class="n">curMax</span><span class="p">);</span>
+        <span class="n">curMin</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">curMin</span> <span class="o">+</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+        <span class="n">minSum</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">minSum</span><span class="p">,</span> <span class="n">curMin</span><span class="p">);</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">maxSum</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">max</span><span class="p">(</span><span class="n">maxSum</span><span class="p">,</span> <span class="n">total</span> <span class="o">-</span> <span class="n">minSum</span><span class="p">)</span> <span class="o">:</span> <span class="n">maxSum</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <strong>Contact Me</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center social-font"><a class="social mx-1"  href="mailto:nithin.tsk@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div>
+
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

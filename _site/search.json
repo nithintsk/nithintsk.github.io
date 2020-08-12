@@ -1,0 +1,131 @@
+[
+  
+    {
+      "title"    : "Validate a Binary Search Tree",
+      "category" : "",
+      "tags"     : "Trees, Leetcode, BST",
+      "url"      : "/blog/Validate-a-binary-search-tree",
+      "date"     : "2020-05-16 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Finding Prime Numbers",
+      "category" : "",
+      "tags"     : "Prime, Math, Leetcode, Sieve, Eratosthenes",
+      "url"      : "/blog/Prime-numbers",
+      "date"     : "2020-05-10 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Pattern Matching - KMP and more",
+      "category" : "",
+      "tags"     : "strings, pattern, matching, knuth morris pratt, KMP",
+      "url"      : "/blog/Pattern-Matching",
+      "date"     : "2020-05-08 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Bit arithmetic - Cheat Sheet and Programs",
+      "category" : "",
+      "tags"     : "bit arithmetic, bit, xor, operators, bitwise, Leetcode",
+      "url"      : "/blog/Bit-arithmetic",
+      "date"     : "2020-04-24 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Tree Traversal - Inorder, Preorder and Postorder",
+      "category" : "",
+      "tags"     : "Tree, traversal, inorder, preorder, postorder",
+      "url"      : "/blog/Tree-traversal",
+      "date"     : "2020-04-20 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Graph Search Algorithms",
+      "category" : "",
+      "tags"     : "DFS, Depth, graph, search",
+      "url"      : "/blog/DFS",
+      "date"     : "2020-04-18 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Rest API An Introduction",
+      "category" : "",
+      "tags"     : "REST, API, Web, SOAP",
+      "url"      : "/blog/Rest-API",
+      "date"     : "2020-04-17 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Deleting duplicates in std::vector",
+      "category" : "",
+      "tags"     : "stl, vector, delete, duplicates",
+      "url"      : "/blog/Deleting-duplicates-in-vector",
+      "date"     : "2020-04-16 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Multicast UDP Sockets with examples",
+      "category" : "",
+      "tags"     : "Socket Programming, sockets",
+      "url"      : "/blog/Multicast-sockets",
+      "date"     : "2020-04-15 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "String Rotation and Reversal - Different Methods",
+      "category" : "",
+      "tags"     : "strings, string manipulation, rotation, reversal",
+      "url"      : "/blog/String-rotation",
+      "date"     : "2020-04-14 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Prefix Sum - The general approach to a contiguous subarray problem.",
+      "category" : "",
+      "tags"     : "prefix sum, subarray, contiguous, Leetcode",
+      "url"      : "/blog/Prefix-sum-problems",
+      "date"     : "2020-04-13 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Generating entropy to create gpg keys",
+      "category" : "",
+      "tags"     : "entropy, gpg, spack",
+      "url"      : "/blog/One-new-thing",
+      "date"     : "2020-04-12 00:00:00 -0400"
+    } ,
+  
+    {
+      "title"    : "Learn React.js in 5 minutes",
+      "category" : "",
+      "tags"     : "External Post, React, JavaScript, Web Development",
+      "url"      : "/blog/learn-react-js",
+      "date"     : "2019-02-15 00:00:00 -0500"
+    } ,
+  
+    {
+      "title"    : "How to undo your git failure?",
+      "category" : "",
+      "tags"     : "External Post, Git",
+      "url"      : "https://blog.usejournal.com/how-to-undo-your-git-failure-b76e31ecac74",
+      "date"     : "2019-02-06 00:00:00 -0500"
+    } ,
+  
+    {
+      "title"    : "What the heck is a Callback?",
+      "category" : "",
+      "tags"     : "External Post, JavaScript, Nodejs, Web Development",
+      "url"      : "/blog/what-the-heck-is-a-callback",
+      "date"     : "2018-12-01 00:00:00 -0500"
+    } ,
+  
+    {
+      "title"    : "Clean Coding",
+      "category" : "",
+      "tags"     : "External Post, Software Development, Clean Code",
+      "url"      : "https://engineering.videoblocks.com/these-four-clean-code-tips-will-dramatically-improve-your-engineering-teams-productivity-b5bd121dd150",
+      "date"     : "2017-06-15 00:00:00 -0400"
+    } 
+  
+]

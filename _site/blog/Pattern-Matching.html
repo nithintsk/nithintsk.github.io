@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My current portfolio">
+
+  <title>Nithin Senthil Kumar</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-font">
+
+    <a class="navbar-brand" href="/"><h4><b>Nithin Senthil Kumar</b></h4></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="https://github.com/nithintsk"><i class="fab fa-1x fa-github"></i></a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+
+  <div class="col-lg-10 mx-auto mt-5 post">
+  <h1><b>Pattern Matching - KMP and more</b></h1>
+
+<p class="post-metadata text-muted">
+  08 May 2020 -  
+  <b>3 mins read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#strings">
+      <span class="tag badge badge-pill text-primary border border-primary">strings</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#pattern">
+      <span class="tag badge badge-pill text-primary border border-primary">pattern</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#matching">
+      <span class="tag badge badge-pill text-primary border border-primary">matching</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#knuth-morris-pratt">
+      <span class="tag badge badge-pill text-primary border border-primary">knuth morris pratt</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#kmp">
+      <span class="tag badge badge-pill text-primary border border-primary">KMP</span>
+    </a>
+    </p>
+
+<h3 id="index">Index</h3>
+<hr />
+<ol>
+  <li><a href="#kmp">Knuth Morris Pratt</a></li>
+  <li><a href="#prob1">Problem 1 - Repeated substring Pattern 459</a></li>
+  <li><a href="#prob2">Problem 2 - TBD</a></li>
+</ol>
+
+<p> </p>
+
+<h3 id="-knuth-morris-pratt-algorithm"><a name="kmp"></a> Knuth Morris Pratt Algorithm</h3>
+<hr />
+<p>The O(n^2) Naive pattern search algorithm can be optimized by using the KMP algorithm O(m+n).
+The concept revolves around finding patterns in the substring that is to be found in the longer string and building an array based on these patterns. This array is then used when traversing the longer string to skip iterations, thus reducing the time complexity.</p>
+
+<p>One of the best explanations out there for KMP is :-<a href="http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/">http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/</a></p>
+
+<p>The code to construct the kmp array is:-</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">match</span> <span class="n">string</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">kmp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">while</span><span class="p">(</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">str</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">)</span> <span class="n">kmp</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="o">=++</span><span class="n">j</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">else</span> <span class="n">j</span> <span class="o">=</span> <span class="n">kmp</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p> </p>
+
+<h3 id="--repeated-substring-pattern-459"><a name="prob1"></a>  <a href="https://leetcode.com/problems/repeated-substring-pattern/">Repeated substring Pattern 459</a></h3>
+<hr />
+<p>Given a non-empty string check if it can be constructed by taking a substring of it and appending multiple copies of the substring together.</p>
+
+<p><strong>Input</strong>: “abcabcabcabc”</p>
+
+<p><strong>Output</strong>: True</p>
+
+<p><strong>Explanation</strong>: It’s the substring “abc” four times. (And the substring “abcabc” twice.)</p>
+
+<p>This first solution in the discuss section absolutely blew my mind away. If you append the string to itself and remove the first element and last element, you should be able to find the string in this newly created substring because of the repeated pattern.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">bool</span> <span class="nf">repeatedSubstringPattern</span><span class="p">(</span><span class="n">string</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">s</span><span class="p">).</span><span class="n">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">).</span><span class="n">find</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="cm">/* or */</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">s</span><span class="p">).</span><span class="n">find</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>The second solution uses KMP. Once you build the KMP array, the value of the final element should be <code class="language-plaintext highlighter-rouge">n - &lt;length of repeated string&gt;</code>
+This also means that the value of the last element should be divisible by <code class="language-plaintext highlighter-rouge">n - &lt;value of last element&gt;</code></p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kt">bool</span> <span class="nf">repeatedSubstringPattern</span><span class="p">(</span><span class="n">string</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">kmp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+    <span class="k">while</span><span class="p">(</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">str</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="p">)</span> <span class="n">kmp</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="o">=++</span><span class="n">j</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">else</span> <span class="n">j</span> <span class="o">=</span> <span class="n">kmp</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">kmp</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">kmp</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p> </p>
+
+<h3><a name="prob2"></a></h3>
+<hr />
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <strong>Contact Me</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center social-font"><a class="social mx-1"  href="mailto:nithin.tsk@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div>
+
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

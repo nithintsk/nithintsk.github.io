@@ -1,0 +1,11 @@
+- name: C++/C 
+  percentage: 90
+  color: danger
+
+- name: Java
+  percentage: 60
+  color: primary
+
+- name: HTML/CSS
+  percentage: 60
+  color: success

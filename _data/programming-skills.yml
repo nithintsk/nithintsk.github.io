@@ -1,0 +1,11 @@
+- name: Python
+  percentage: 90
+  color: info
+
+- name: Shell
+  percentage: 70
+  color: warning
+
+- name: Javascript
+  percentage: 60
+  color: dark

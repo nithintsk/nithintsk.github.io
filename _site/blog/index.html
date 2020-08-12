@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My current portfolio">
+
+  <title>Nithin Senthil Kumar</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-font">
+
+    <a class="navbar-brand" href="/"><h4><b>Nithin Senthil Kumar</b></h4></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="https://github.com/nithintsk"><i class="fab fa-1x fa-github"></i></a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+
+  <!-- Simple-Jekyll-Search https://github.com/christian-fei/Simple-Jekyll-Search -->
+
+<div class="input-group mt-5 px-3">
+  <input id="search-input" type="text" class="form-control search-box" placeholder="Search posts..">
+  <div class="input-group-append">
+    <span class="input-group-text border border-primary bg-primary text-white">
+      <i class="fas fa-search"></i>
+    </span>
+  </div>
+  <button class="btn btn-outline-primary ml-1" onclick="location.href = '/blog/tags';">
+    <i class="fas fa-tags"></i>
+  </button>
+</div>
+<ul class="px-3" id="results-container"></ul>
+
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/search.json'
+      })
+</script>
+<div class="card-group mt-2">
+
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Validate-a-binary-search-tree" class="post card bg-secondary">
+    <div class="card-body text-white">
+      <h3 class="card-title">Validate a Binary Search Tree</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-secondary">Trees</span>
+        
+        <span class="badge badge-light text-secondary">Leetcode</span>
+        
+        <span class="badge badge-light text-secondary">BST</span>
+        
+      </p>
+      <p class="card-text">Different methods to verify the validity of a binary search tree. This post assumes a basic understanding of what a binary tree is and goes on to explain how inorder traversal and recursion can be used to validate BSTs.</p>
+    </div>
+    <div class="card-footer text-white">
+      16 May 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Prime-numbers" class="post card border border-primary">
+    <div class="card-body text-dark">
+      <h3 class="card-title">Finding Prime Numbers</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-primary">Prime</span>
+        
+        <span class="badge badge-primary">Math</span>
+        
+        <span class="badge badge-primary">Leetcode</span>
+        
+        <span class="badge badge-primary">Sieve</span>
+        
+        <span class="badge badge-primary">Eratosthenes</span>
+        
+      </p>
+      <p class="card-text">This post contains an expanding record of problems related to finding or counting prime numbers.</p>
+    </div>
+    <div class="card-footer text-dark">
+      10 May 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Pattern-Matching" class="post card bg-danger">
+    <div class="card-body text-white">
+      <h3 class="card-title">Pattern Matching - KMP and more</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-danger">strings</span>
+        
+        <span class="badge badge-light text-danger">pattern</span>
+        
+        <span class="badge badge-light text-danger">matching</span>
+        
+        <span class="badge badge-light text-danger">knuth morris pratt</span>
+        
+        <span class="badge badge-light text-danger">KMP</span>
+        
+      </p>
+      <p class="card-text">This post documents important algorithms such as KMP that are used to solve string pattern matching problems.</p>
+    </div>
+    <div class="card-footer text-white">
+      08 May 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Bit-arithmetic" class="post card bg-info">
+    <div class="card-body text-white">
+      <h3 class="card-title">Bit arithmetic - Cheat Sheet and Programs</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-info">bit arithmetic</span>
+        
+        <span class="badge badge-light text-info">bit</span>
+        
+        <span class="badge badge-light text-info">xor</span>
+        
+        <span class="badge badge-light text-info">operators</span>
+        
+        <span class="badge badge-light text-info">bitwise</span>
+        
+        <span class="badge badge-light text-info">Leetcode</span>
+        
+      </p>
+      <p class="card-text">This is a cheatsheet for common bitarithmetic problems on Leetcode. This sheet will continuously be updated whenever I find amusing new bit arithmetic problems.</p>
+    </div>
+    <div class="card-footer text-white">
+      24 April 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Tree-traversal" class="post card bg-success">
+    <div class="card-body text-white">
+      <h3 class="card-title">Tree Traversal - Inorder, Preorder and Postorder</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-success">Tree</span>
+        
+        <span class="badge badge-light text-success">traversal</span>
+        
+        <span class="badge badge-light text-success">inorder</span>
+        
+        <span class="badge badge-light text-success">preorder</span>
+        
+        <span class="badge badge-light text-success">postorder</span>
+        
+      </p>
+      <p class="card-text">A one stop reference to find the recursive and iterative traversal algorithms for different tree traversal approaches.</p>
+    </div>
+    <div class="card-footer text-white">
+      20 April 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/DFS" class="post card bg-primary">
+    <div class="card-body text-white">
+      <h3 class="card-title">Graph Search Algorithms</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-primary">DFS</span>
+        
+        <span class="badge badge-light text-primary">Depth</span>
+        
+        <span class="badge badge-light text-primary">graph</span>
+        
+        <span class="badge badge-light text-primary">search</span>
+        
+      </p>
+      <p class="card-text">DFS is one of the most easiest and fun graph search algorithms to learn and implement. It has wide ranging applications and can prove very useful in competitive programming, but how would you implement it?</p>
+    </div>
+    <div class="card-footer text-white">
+      18 April 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Rest-API" class="post card bg-dark">
+    <div class="card-body text-white">
+      <h3 class="card-title">Rest API An Introduction</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-dark">REST</span>
+        
+        <span class="badge badge-light text-dark">API</span>
+        
+        <span class="badge badge-light text-dark">Web</span>
+        
+        <span class="badge badge-light text-dark">SOAP</span>
+        
+      </p>
+      <p class="card-text">We've heard the word API and REST thrown around a lot. But what exactly are they? I decided to find out and document it for my reference.</p>
+    </div>
+    <div class="card-footer text-white">
+      17 April 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Deleting-duplicates-in-vector" class="post card bg-light">
+    <div class="card-body text-dark">
+      <h3 class="card-title">Deleting duplicates in std::vector</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-dark">stl</span>
+        
+        <span class="badge badge-dark">vector</span>
+        
+        <span class="badge badge-dark">delete</span>
+        
+        <span class="badge badge-dark">duplicates</span>
+        
+      </p>
+      <p class="card-text">This post details different methods - from the least efficient to the most efficient - to delete duplicate elements from a `std::vector`.</p>
+    </div>
+    <div class="card-footer text-dark">
+      16 April 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Multicast-sockets" class="post card bg-secondary">
+    <div class="card-body text-white">
+      <h3 class="card-title">Multicast UDP Sockets with examples</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-secondary">Socket Programming</span>
+        
+        <span class="badge badge-light text-secondary">sockets</span>
+        
+      </p>
+      <p class="card-text">Multicast sockets allow us to initiate communication with multiple listeners on the network, selectively. In order to explore this feature, I experimented with a simple sender/receiver multicast program.</p>
+    </div>
+    <div class="card-footer text-white">
+      15 April 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/String-rotation" class="post card bg-warning">
+    <div class="card-body text-white">
+      <h3 class="card-title">String Rotation and Reversal - Different Methods</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-warning">strings</span>
+        
+        <span class="badge badge-light text-warning">string manipulation</span>
+        
+        <span class="badge badge-light text-warning">rotation</span>
+        
+        <span class="badge badge-light text-warning">reversal</span>
+        
+      </p>
+      <p class="card-text">The very basics of string manipulation problems are documented in this post. How to reverse or rotate a string? This post elaborates on it.</p>
+    </div>
+    <div class="card-footer text-white">
+      14 April 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/Prefix-sum-problems" class="post card bg-info">
+    <div class="card-body text-white">
+      <h3 class="card-title">Prefix Sum - The general approach to a contiguous subarray problem.</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-info">prefix sum</span>
+        
+        <span class="badge badge-light text-info">subarray</span>
+        
+        <span class="badge badge-light text-info">contiguous</span>
+        
+        <span class="badge badge-light text-info">Leetcode</span>
+        
+      </p>
+      <p class="card-text">Prefix sum problems are some of the most commonly asked Leetcode problems. It's pretty much basic math, but is not exactly as intutive as you would think, if you don't know the approach.</p>
+    </div>
+    <div class="card-footer text-white">
+      13 April 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/One-new-thing" class="post card bg-success">
+    <div class="card-body text-white">
+      <h3 class="card-title">Generating entropy to create gpg keys</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-success">entropy</span>
+        
+        <span class="badge badge-light text-success">gpg</span>
+        
+        <span class="badge badge-light text-success">spack</span>
+        
+      </p>
+      <p class="card-text">Generating entropy for gpg keys can sometimes cause massive wait times if your system is idle. I faced this problem and had to figure out a way to invoke false workloads to increase system utilization. Here are my methods following a quick web search.</p>
+    </div>
+    <div class="card-footer text-white">
+      12 April 2020
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/learn-react-js" class="post card border border-primary">
+    <div class="card-body text-dark">
+      <h3 class="card-title">Learn React.js in 5 minutes</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-primary">External Post</span>
+        
+        <span class="badge badge-primary">React</span>
+        
+        <span class="badge badge-primary">JavaScript</span>
+        
+        <span class="badge badge-primary">Web Development</span>
+        
+      </p>
+      <p class="card-text">A quick introduction to the popular JavaScript library.</p>
+    </div>
+    <div class="card-footer text-dark">
+      15 February 2019
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="https://blog.usejournal.com/how-to-undo-your-git-failure-b76e31ecac74" class="post card bg-warning">
+    <div class="card-body text-white">
+      <h3 class="card-title">How to undo your git failure?</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-warning">External Post</span>
+        
+        <span class="badge badge-light text-warning">Git</span>
+        
+      </p>
+      <p class="card-text">Using `git reflog` and `git reset` to save your code.</p>
+    </div>
+    <div class="card-footer text-white">
+      06 February 2019
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="/blog/what-the-heck-is-a-callback" class="post card bg-danger">
+    <div class="card-body text-white">
+      <h3 class="card-title">What the heck is a Callback?</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-danger">External Post</span>
+        
+        <span class="badge badge-light text-danger">JavaScript</span>
+        
+        <span class="badge badge-light text-danger">Nodejs</span>
+        
+        <span class="badge badge-light text-danger">Web Development</span>
+        
+      </p>
+      <p class="card-text">Learn and understand the basics of callbacks in just 6 minutes with easy examples.</p>
+    </div>
+    <div class="card-footer text-white">
+      01 December 2018
+    </div>
+  </a>
+</div>
+  
+    <div class="col-lg-6 my-3 wow animated fadeIn" data-wow-delay=".15s">
+  <a href="https://engineering.videoblocks.com/these-four-clean-code-tips-will-dramatically-improve-your-engineering-teams-productivity-b5bd121dd150" class="post card bg-info">
+    <div class="card-body text-white">
+      <h3 class="card-title">Clean Coding</h3>
+      <p class="card-text">
+        
+        <span class="badge badge-light text-info">External Post</span>
+        
+        <span class="badge badge-light text-info">Software Development</span>
+        
+        <span class="badge badge-light text-info">Clean Code</span>
+        
+      </p>
+      <p class="card-text">These four “clean code” tips will dramatically improve your engineering team’s productivity</p>
+    </div>
+    <div class="card-footer text-white">
+      15 June 2017
+    </div>
+  </a>
+</div>
+  
+  
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <strong>Contact Me</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center social-font"><a class="social mx-1"  href="mailto:nithin.tsk@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div>
+
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

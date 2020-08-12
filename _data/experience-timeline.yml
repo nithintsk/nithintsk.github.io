@@ -1,0 +1,44 @@
+- title: Graduate Research Associate, NOWLAB Dept. of CSE, OSU
+  from: Apr 2020
+  to: Present
+  description: |+
+      <h6>- Currently integrating and optimizing the performance of Nvidia collective communications library(NCCL) into CUDA Aware MPI library - MVAPICH2GDR</h6>
+      <p></p>
+      <h6>- Drove the public launch of Mvapich2-X and Mvapich2-GDR MPI libraries on the HPC package management platform, Spack</h6>
+      <p></p>
+      <h6>- Implemented a benchmark to determine the latency of MPI applications with forked processes</h6>
+
+- title: Systems Reliability Engineer - II, Nutanix
+  from: Jul 2017
+  to: Jun 2019
+  description: 
+      <h6>- Tech lead of team that won ”Strengthening the Core” @ Nutanix Hackathon 4.0</h6> 
+      <p></p>
+      <h6>- Mentored and led the team that designed and developed a web platform [Flask,
+      React, Docker, Elasticsearch] with Salesforce integration to display a live summary
+      of critical alerts and configuration of customers’ clusters.</h6>
+      <p></p>
+      <h6>- Proactively proposed and pioneered automation projects that interfaced with
+      Salesforce, Slack to improve management efficiency.</h6>
+      <p></p>
+      <h6>- Gained expertise in diagnosing and resolving critical performance issues in
+      applications, storage, and networks in production data-center environments. </h6>
+
+- title: Engineering Intern, Nutanix
+  from: Jan 2017
+  to: Jun 2017
+  description: 
+      <h6>- Deployed a diagnostic dashboard to speed up case resolution times by tracking
+      trends in cluster performance stats.</h6>
+      <p></p>
+      <h6>- Developed and implemented a data extraction and migration tool [PostgreSQL,
+      Elasticsearch, Java] to make historical records accessible for sales analytics.</h6>
+
+- title: Summer Research Fellow, IIT Hyderabad
+  from: May 2016
+  to: Jul 2016
+  description: 
+      <h6>- Implemented graph coloring and barrier synchronization solutions to parallelize
+      and tune the performance the Finite Elements Method problem.</h6>
+      <p></p>
+      <h6>- Libraries created were incorporated into Mechanical department projects.</h6>

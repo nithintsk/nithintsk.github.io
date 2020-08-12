@@ -1,0 +1,21 @@
+---
+title: "Graph Search Algorithms"
+tags: [DFS, Depth, graph, search]
+style: fill
+color: primary
+description: DFS is one of the most easiest and fun graph search algorithms to learn and implement. It has wide ranging applications and can prove very useful in competitive programming, but how would you implement it?
+---
+
+### Depth First Search(DFS)
+-------
+DFS is one of the most easiest and fun graph search algorithms to learn and implement. This is because, if you are familiar with recursion, the algorithm is pretty intuitive. Let's take a look at the pseudo code.
+
+![dfs](/img/dfs.jpg)
+
+The main idea is to perform a depth first search on every node in the graph. If the node is new, it is marked as visited and DFS is performed on all the node's neighbors. If the node was previously visited, then it is skipped.
+
+Time Complexity:-
++ O(V<sup>2</sup>) if the graph is implemented using an adjacency martix
++ O(V + E) if the graph is implemented using an adjacency list
+
+&nbsp;

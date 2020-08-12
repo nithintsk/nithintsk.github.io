@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My current portfolio">
+
+  <title>Nithin Senthil Kumar</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-font">
+
+    <a class="navbar-brand" href="/"><h4><b>Nithin Senthil Kumar</b></h4></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="https://github.com/nithintsk"><i class="fab fa-1x fa-github"></i></a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+
+  <div class="col-lg-10 mx-auto mt-5 post">
+  <h1><b>String Rotation and Reversal - Different Methods</b></h1>
+
+<p class="post-metadata text-muted">
+  14 April 2020 -  
+  <b>5 mins read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#strings">
+      <span class="tag badge badge-pill text-primary border border-primary">strings</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#string-manipulation">
+      <span class="tag badge badge-pill text-primary border border-primary">string manipulation</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#rotation">
+      <span class="tag badge badge-pill text-primary border border-primary">rotation</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#reversal">
+      <span class="tag badge badge-pill text-primary border border-primary">reversal</span>
+    </a>
+    </p>
+
+<h2 id="introduction">Introduction</h2>
+<hr />
+<p>While rotation and left/right shifting with extra space is relatively easy, in place rotation is not as straightforward. Luckily, C++ provides us with its own algorithms to carry out these operations with relative ease. It is important, however, to remember the syntax of std::rotate and std::reverse. There is one more trick we can use to carry out string rotation using the reverse function. All this and more are explained below.</p>
+
+<h3 id="1-reversing-a-string-or-container">1. Reversing a string or container</h3>
+<hr />
+
+<p>There are two methods to reverse a string:</p>
+
+<h4 id="1-we-write-our-own-simple-in-place-reversal-function">1. We write our own simple in place reversal function.</h4>
+<ul>
+  <li>The function takes two arguments:- A reference to the string and the starting and ending index <code class="language-plaintext highlighter-rouge">[start, end)</code>, between which the characters need to be rotated.</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">reversal</span><span class="p">(</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">start</span> <span class="o">&gt;=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">end</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">end</span> <span class="o">&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">j</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Swapping without an extra variable</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="2-we-use--librarys-stdreverse-function">2. We use <algorithm> library's std::reverse function.</algorithm></h4>
+<ul>
+  <li>The function of std::reverse is to reverse the order of the elements in the range [first, last) of any container.</li>
+  <li>The syntax is <code class="language-plaintext highlighter-rouge">void std::reverse(Bidirectional iterator first, Bidirectional iterator end)</code>.</li>
+  <li>Since the arguments take bidirectional iterators, we can use rbegin and rend too.</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"HelloWorld"</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">reverse</span><span class="p">(</span><span class="n">begin</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">end</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+<span class="n">std</span><span class="o">::</span><span class="n">reverse</span><span class="p">(</span><span class="n">begin</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p> </p>
+
+<h3 id="2-rotation-of-a-string-or-container">2. Rotation of a string or container</h3>
+<hr />
+
+<p>Rotation can happen in either direction - left or right. It is important to remember that rotating left by <code class="language-plaintext highlighter-rouge">n</code>, is the same as rotating right <code class="language-plaintext highlighter-rouge">size - n</code> times. We can use the reverse function to rotate an array. This is a shortcut when we can’t use the std::rotate function. The three methods to rotate a container are described below.</p>
+
+<h4 id="1-when-we-cant-use-stdrotate-but-have-our-reverse-function">1. When we can’t use std::rotate, but have our reverse function.</h4>
+<ul>
+  <li>In this method, to left rotate by n, we first reverse the range <code class="language-plaintext highlighter-rouge">[start, n)</code> and <code class="language-plaintext highlighter-rouge">[n, end)</code>.</li>
+  <li>Then we rotate the whole container.</li>
+  <li>To right rotate, we just need to call left rotate with <code class="language-plaintext highlighter-rouge">n = size - n</code></li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">left_rotate</span><span class="p">(</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">reversal</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">reversal</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+    <span class="n">reversal</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">right_rotate</span><span class="p">(</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">left_rotate</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="2-using-stdrotate">2. Using std::rotate</h4>
+<ul>
+  <li>The syntax of the function is <code class="language-plaintext highlighter-rouge">std::rotate(forward iterator start, forward iterator middle, forward iterator end);</code></li>
+  <li>Start and end are forward iterators of the container to be rotated</li>
+  <li>Middle is going to become the first element.</li>
+  <li>Essentially, it is left rotate until middle is at the beginning of the array</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Left rotate by n</span>
+<span class="n">std</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span><span class="n">begin</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">begin</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+
+<span class="c1">// Right rotate by n</span>
+<span class="n">std</span><span class="o">::</span><span class="n">rotate</span><span class="p">(</span><span class="n">begin</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">begin</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="n">n</span><span class="p">)</span> <span class="p">,</span> <span class="n">end</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h4 id="3-using-stdrotate_copy">3. Using std::rotate_copy</h4>
+<ul>
+  <li>The syntax of the function is <code class="language-plaintext highlighter-rouge">std::rotate(forward iterator start, forward iterator middle, forward iterator end, destination iterator start);</code></li>
+  <li>Same as rotate but it copies the rotated segment to the new container at destination iterator start</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span> <span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">};</span>  
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dest</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">rotate_copy</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">arr</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n">arr</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="n">begin</span><span class="p">(</span><span class="n">dest</span><span class="p">));</span>
+<span class="c1">// Dest would now contain: 4, 5, 6, 7, 8, 9, 10, 1, 2, 3</span>
+</code></pre></div></div>
+<p> </p>
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <strong>Contact Me</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center social-font"><a class="social mx-1"  href="mailto:nithin.tsk@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div>
+
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>

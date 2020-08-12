@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My current portfolio">
+
+  <title>Nithin Senthil Kumar</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-font">
+
+    <a class="navbar-brand" href="/"><h4><b>Nithin Senthil Kumar</b></h4></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="https://github.com/nithintsk"><i class="fab fa-1x fa-github"></i></a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+
+  <div class="col-lg-10 mx-auto mt-5 post">
+  <h1><b>Bit arithmetic - Cheat Sheet and Programs</b></h1>
+
+<p class="post-metadata text-muted">
+  24 April 2020 -  
+  <b>4 mins read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#bit-arithmetic">
+      <span class="tag badge badge-pill text-primary border border-primary">bit arithmetic</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#bit">
+      <span class="tag badge badge-pill text-primary border border-primary">bit</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#xor">
+      <span class="tag badge badge-pill text-primary border border-primary">xor</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#operators">
+      <span class="tag badge badge-pill text-primary border border-primary">operators</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#bitwise">
+      <span class="tag badge badge-pill text-primary border border-primary">bitwise</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#leetcode">
+      <span class="tag badge badge-pill text-primary border border-primary">Leetcode</span>
+    </a>
+    </p>
+
+<h3 id="index">Index</h3>
+<hr />
+<ol>
+  <li><a href="#operators">List of Bitwise operators</a></li>
+  <li><a href="#tips">Tips and tricks</a></li>
+  <li><a href="https://www.geeksforgeeks.org/bitwise-hacks-for-competitive-programming/">Bitwise hacks for competitive programming</a></li>
+  <li><a href="#prob1">Problem 1 - Bitwise AND of a range of numbers</a></li>
+  <li><a href="#prob2">Problem 2 - Ones complement of a number</a></li>
+  <li><a href="#prob3">Problem 3 - Count the number of 1s in numbers in range 0 to num inclusive</a></li>
+  <li><a href="#prob4">Problem 4 - Find a missing number in the range 0 to n</a></li>
+</ol>
+
+<p> </p>
+
+<h3 id="-list-of-bitwise-operators"><a name="operators"></a> List of Bitwise operators</h3>
+<hr />
+
+<table>
+  <tbody>
+    <tr>
+      <td>AND</td>
+      <td><strong>&amp;</strong></td>
+    </tr>
+    <tr>
+      <td>OR</td>
+      <td><strong>|</strong></td>
+    </tr>
+    <tr>
+      <td>XOR</td>
+      <td><strong>^</strong></td>
+    </tr>
+    <tr>
+      <td>Left shift</td>
+      <td><strong>«</strong></td>
+    </tr>
+    <tr>
+      <td>Right Shift</td>
+      <td><strong>»</strong></td>
+    </tr>
+    <tr>
+      <td>NOT</td>
+      <td><strong>~</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p> </p>
+
+<h3 id="-important-tips-and-tricks-to-remember-the-non-obvious-ones"><a name="tips"></a> Important tips and tricks to remember (the non obvious ones)</h3>
+<hr />
+<p><strong>Right shift by 1 is division by two. Left shift by 1 is multiplication by 2 (It’s obvious. I know.)</strong></p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// a gets value of 6</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">12</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// a gets value of 24</span>
+</code></pre></div></div>
+
+<p><strong>Bitwise AND(<code class="language-plaintext highlighter-rouge">&amp;</code>) to check if even or add. Checks the LSB (0 is even, 1 is odd)</strong></p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"ODD"</span><span class="p">;</span>
+<span class="k">else</span> <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"EVEN"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>Convert a character to lowercase regardless of what case it is in</strong></p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span> <span class="o">|</span> <span class="sc">' '</span>
+</code></pre></div></div>
+
+<p><strong>Convert a character to uppercase regrdless of what case it is in</strong></p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span> <span class="o">&amp;</span> <span class="sc">'_'</span>
+</code></pre></div></div>
+
+<p><strong>Swap two variables without a third - using XOR</strong></p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">^</span><span class="n">b</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">^</span><span class="n">a</span><span class="p">;</span> <span class="c1">// same as b = b ^ a ^ b</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">^</span><span class="n">b</span><span class="p">;</span> <span class="c1">// same as a = (a ^ b) ^ (b ^ a ^ b)</span>
+</code></pre></div></div>
+
+<p> </p>
+
+<h3 id="bitwise-hacks-for-competitive-programming"><a href="https://www.geeksforgeeks.org/bitwise-hacks-for-competitive-programming/">Bitwise hacks for competitive programming</a></h3>
+
+<p> </p>
+
+<h3 id="-bitwise-and-of-a-range-of-numbers"><a name="prob1"></a> Bitwise AND of a range of numbers</h3>
+<hr />
+<p>The result will be 0 if:- <code class="language-plaintext highlighter-rouge">log2(n/m) != 0</code> &lt;–&gt; <code class="language-plaintext highlighter-rouge">log2(n) != log2(m)</code>. In the below method, m will be equal to n and the loop will break only if the MSB of m and n are the same.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">rangeBitwiseAnd</span><span class="p">(</span><span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">m</span> <span class="o">!=</span> <span class="n">n</span><span class="p">){</span>
+        <span class="n">m</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">&lt;&lt;=</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p> </p>
+
+<h3 id="-1s-complement-of-a-number"><a name="prob2"></a> 1s complement of a number</h3>
+<hr />
+<p><strong>Eg. 1</strong> Input: 5 Output: 2</p>
+
+<p>Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.</p>
+
+<p><strong>Eg. 2</strong> Input: 1 Output: 0</p>
+
+<p>Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">findComplement</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">mask</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">mask</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">mask</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>                                                                    
+    <span class="k">return</span> <span class="n">mask</span> <span class="o">^</span> <span class="n">num</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p> </p>
+
+<h3 id="-get-count-of-1s-of-all-numbers-in-range-0-num"><a name="prob3"></a> Get count of 1s of all numbers in range [0, num]</h3>
+<hr />
+<p><strong>Eg. 1</strong> Input: 5 Output: [0,1,1,2,1,2]</p>
+
+<p>We can use inbuilt function: <code class="language-plaintext highlighter-rouge">cout&lt;&lt; __builtin_popcount (4);</code></p>
+
+<p>This is a form of dynamic programming, where we use the value of res[i/2] which
+will have the same number of 1s as res[num] + (1 if odd, 0 if even)</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">countBits</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">(</span><span class="n">num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p> </p>
+
+<h3 id="-find-missing-number-in-an-array-of-n-elements-in-the-range-of-0-to-n"><a name="prob4"></a> Find missing number in an array of n elements in the range of 0 to n.</h3>
+<hr />
+<p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.</p>
+
+<p><strong>Eg. 1</strong> Input: [3,0,1] Output: 2</p>
+
+<p><strong>Eg. 2</strong> Input: [9,6,4,2,3,5,7,0,1] Output: 8</p>
+
+<p><code class="language-plaintext highlighter-rouge">cpp
+public int missingNumber(int[] nums) { //xor
+    int res = nums.length;
+    for(int i=0; i&lt;nums.length; i++){
+        res ^= i;
+        res ^= nums[i];
+    }
+    return res;
+}
+bit arithmetic, bit, xor, operators,</code></p>
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <strong>Contact Me</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center social-font"><a class="social mx-1"  href="mailto:nithin.tsk@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/nithintsk"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div>
+
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+</body>
+
+</html>
