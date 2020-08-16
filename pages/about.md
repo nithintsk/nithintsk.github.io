@@ -8,7 +8,10 @@ weight: 3
 # **About Me**
 <h4>Hi, I am <strong>{{ site.author.name }}</strong> :wave:,</h4>
 <p></p>
-<h5 class="text-justify">I am a second year Master's student studying Computer Science at The Ohio State University, currently looking for full-time opportunities as a Software Developer. I previously worked at Nutanix for 2 years where I expanded my knowledge about compute, storage and network infrastructure. I believe that if you never stop learning and communicate your knowledge effectively, the world is your oyster. </h5>
+<h4>I am a second year Master's student studying Computer Science at The Ohio State University, currently looking for full-time opportunities as a Software Developer.<br><br>
+My current research is focused around optimizing the performance of GPU to GPU data transfers over Infiniband in Supercomputers to speed up high performance deep learning applications.<br><br>
+I previously worked at Nutanix for 2 years where I gained expertise working with compute, storage and network infrastructure on Nutanix and VMware platforms.<br><br> 
+I believe that the secret to a happy career is to never stop learning, to share your knowledge with your peers and to make time for family, friends and travel. </h4>
 
 <div class="row">
 {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
