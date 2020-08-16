@@ -6,7 +6,7 @@ weight: 3
 ---
 
 # **About Me**
-<h4>Hi, I am <strong>{{ site.author.name }}</strong> :wave:,</h4>
+<h4>Hi, I am <strong>{{ site.author.name }},</strong></h4>
 <p></p>
 I am a second year Master's student studying Computer Science at The Ohio State University, currently looking for full-time opportunities as a Software Developer.<br><br>
 My current research is focused around optimizing the performance of GPU to GPU data transfers over Infiniband in Supercomputers to speed up high performance deep learning applications.<br><br>
