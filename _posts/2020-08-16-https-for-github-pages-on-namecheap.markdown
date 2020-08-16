@@ -2,7 +2,7 @@
 title:  "Adding https to your github pages with a .me custom domain from NameCheap.com"
 tags: [https, nc, namecheap, me, github pages]
 style: fill
-color: Primary
+color: primary
 description: If you've acquired a .me domain from namecheap.com and configured it point to your github pages, making the website use https will require some additional steps.
 ---
 
