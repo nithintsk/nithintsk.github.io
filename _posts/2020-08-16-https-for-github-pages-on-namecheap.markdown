@@ -22,7 +22,7 @@ d. Try accessing your .me domain, if it successfully redirects to https, you can
 
 ### 2. If you weren't able to enable https redirection in github settings
 
-####Did you get the following error?
+#### Did you get the following error?
 ![Github Error](/img/github-error.jpg)
 
 This is likely because you have two extra A records in you advanced DNS settings on NameCheap.com
