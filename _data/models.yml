@@ -1,0 +1,7 @@
+- name: CUDA
+
+- name: MPI
+
+- name: POSIX Threads
+
+- name: Map Reduce

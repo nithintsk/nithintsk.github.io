@@ -61,7 +61,7 @@
 </nav>
 
   <div class="col-lg-10 mx-auto mt-5 post">
-  <h1><b>Adding https to your github pages with a .me custom domain from NameCheap.com</b></h1>
+  <h1><b>https on .me custom domain - github pages</b></h1>
 
 <p class="post-metadata text-muted">
   16 August 2020 -  
@@ -90,23 +90,22 @@
     </a>
     </p>
 
-<p>I would have made this post point directly to the NameCheap.com support page, except there were two issues that I encountered.</p>
+<h3 id="1-follow-the-steps-in-the-below">1. Follow the steps in the below.</h3>
 
-<h3 id="follow-the-steps-in-the-below-two-knowledge-base-articles">Follow the steps in the below two knowledge base articles.</h3>
-<p><a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-link-my-domain-to-github-pages">Name Cheap KB to connect NC to github pages</a></p>
+<p>a. <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-link-my-domain-to-github-pages">Name Cheap KB to connect NC to github pages</a></p>
 
-<p>Now, in your github repository, add a file “CNAME” the contents of which are your .me domain name.</p>
+<p>b. Now, in your github repository, add a file “CNAME” the contents of which are your .me domain name.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat CNAME
 nithintsk.me
 </code></pre></div></div>
 
-<p><a href="https://docs.github.com/en/github/working-with-github-pages/securing-your-github-pages-site-with-https">Github KB to make the domain use https instead of http</a></p>
+<p>c. <a href="https://docs.github.com/en/github/working-with-github-pages/securing-your-github-pages-site-with-https">Github KB to make the domain use https instead of http</a></p>
 
-<p>Try accessing your .me domain, if it successfully redirects to https, you can stop reading further.</p>
+<p>d. Try accessing your .me domain, if it successfully redirects to https, you can stop reading further.</p>
 
-<h3 id="if-you-werent-able-to-enable-https-redirection-in-github-settings">If you weren’t able to enable https redirection in github settings</h3>
+<h3 id="2-if-you-werent-able-to-enable-https-redirection-in-github-settings">2. If you weren’t able to enable https redirection in github settings</h3>
 
-<p>Did you get the following error?
+<p>####Did you get the following error?
 <img src="/img/github-error.jpg" alt="Github Error" /></p>
 
 <p>This is likely because you have two extra A records in you advanced DNS settings on NameCheap.com</p>

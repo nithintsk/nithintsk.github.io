@@ -1,0 +1,8 @@
+<div class="col-lg p-4 border bg-light rounded-lg">
+  <h3 class="mb-4">{{ include.title }}</h3>
+  <p style="font-size: 1.3em">
+    {% for skill in include.source %}
+        &#8226; {{ skill.name }}
+    {% endfor %}
+  </p>
+</div>
