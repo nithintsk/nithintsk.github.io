@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Add sudo user and setup ssh config",
+      "category" : "",
+      "tags"     : "new user, useradd, wheel, ssh, config, passwd",
+      "url"      : "/blog/Setup-new-user-on-machine-with-jumpbox",
+      "date"     : "2020-08-20 00:00:00 -0400"
+    } ,
+  
+    {
       "title"    : "https on .me custom domain - github pages",
       "category" : "",
       "tags"     : "https, nc, namecheap, me, github pages",

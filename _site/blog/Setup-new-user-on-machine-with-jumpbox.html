@@ -61,64 +61,79 @@
 </nav>
 
   <div class="col-lg-10 mx-auto mt-5 post">
-  <h1><b>https on .me custom domain - github pages</b></h1>
+  <h1><b>Add sudo user and setup ssh config</b></h1>
 
 <p class="post-metadata text-muted">
-  16 August 2020 -  
+  20 August 2020 -  
   <b>less than 1 min read time</b>
 
   <br>Tags: 
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#https">
-      <span class="tag badge badge-pill text-primary border border-primary">https</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#new-user">
+      <span class="tag badge badge-pill text-primary border border-primary">new user</span>
     </a>
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#nc">
-      <span class="tag badge badge-pill text-primary border border-primary">nc</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#useradd">
+      <span class="tag badge badge-pill text-primary border border-primary">useradd</span>
     </a>
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#namecheap">
-      <span class="tag badge badge-pill text-primary border border-primary">namecheap</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#wheel">
+      <span class="tag badge badge-pill text-primary border border-primary">wheel</span>
     </a>
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#me">
-      <span class="tag badge badge-pill text-primary border border-primary">me</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#ssh">
+      <span class="tag badge badge-pill text-primary border border-primary">ssh</span>
     </a>
     
-    <a class="text-decoration-none no-underline" href="/blog/tags#github-pages">
-      <span class="tag badge badge-pill text-primary border border-primary">github pages</span>
+    <a class="text-decoration-none no-underline" href="/blog/tags#config">
+      <span class="tag badge badge-pill text-primary border border-primary">config</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#passwd">
+      <span class="tag badge badge-pill text-primary border border-primary">passwd</span>
     </a>
     </p>
 
-<h3 id="1-follow-the-steps-in-the-below">1. Follow the steps in the below.</h3>
+<h3 id="1-login-in-as-root-into-the-remote-linux-machine">1. Login in as root into the remote linux machine</h3>
 
-<p>a. <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-link-my-domain-to-github-pages">Name Cheap KB to connect NC to github pages</a></p>
+<p>We shall create a new user, set its passwd and add to wheel for sudo access</p>
 
-<p>b. Now, in your github repository, add a file “CNAME” the contents of which are your .me domain name.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat CNAME
-nithintsk.me
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ user add nithintsk
+$ passwd nithintsk
+$ usermod -aG wheel nithintsk
 </code></pre></div></div>
 
-<p>c. <a href="https://docs.github.com/en/github/working-with-github-pages/securing-your-github-pages-site-with-https">Github KB to make the domain use https instead of http</a></p>
+<h3 id="2-modify-your-ssh-config-file-on-the-local-machine">2. Modify your ssh config file on the local machine</h3>
 
-<p>d. Try accessing your .me domain, if it successfully redirects to https, you can stop reading further.</p>
+<p>Edit your ssh config file at ~/.ssh/config (Create a new one if you have to)</p>
 
-<h3 id="2-if-you-werent-able-to-enable-https-redirection-in-github-settings">2. If you weren’t able to enable https redirection in github settings</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Jump host
+Host jump-box
+    HostName jump-box.osu.edu
+    User ntihintsk
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_rsa_PERSONAL
 
-<h4 id="did-you-get-the-following-error">Did you get the following error?</h4>
-<p><img src="/img/github-error.jpg" alt="Github Error" /></p>
+# Remote VM
+Host remote-vm
+    HostName 192.168.5.106
+    ProxyJump jump-box
+    User nithintsk
+    IdentityFile ~/.ssh/id_rsa_PERSONAL
+</code></pre></div></div>
 
-<p>This is likely because you have two extra A records in you advanced DNS settings on NameCheap.com</p>
+<h3 id="3-enable-passwordless-ssh">3. Enable passwordless ssh</h3>
 
-<p>Delete the A records with the ips below:</p>
-<ul>
-  <li>192.30.252.153</li>
-  <li>192.30.252.154</li>
-</ul>
+<p>Generate a new ssh key if you don’t already have one</p>
 
-<p>After deletion, try to reenable https redirection in the repository settings on Github. It worked for me.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh-keygen
+</code></pre></div></div>
 
-<p>Now you should be able to use your .me domain to access your github pages website.</p>
+<p>Copy over the key to your jump box and remote serve</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh-copy-id jump-box
+$ ssh-copy-id remote-vm
+</code></pre></div></div>
 
 <hr />
 
